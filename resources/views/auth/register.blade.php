@@ -24,21 +24,21 @@
     <div class="card-body">
       <p class="login-box-msg">Register here</p>
 
-      <form action="{{ route('login-proses') }}" method="post">
+      <form action="{{ route('register-proses') }}" method="post">
         @csrf
         <div class="input-group mb-3">
-            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap">
+            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" value="{{ old('nama') }}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
-          @error('email')
-            <small>{{ $message }}</small>
-          @enderror
+            @error('nama')
+              <small>{{ $message }}</small>
+            @enderror
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -63,12 +63,15 @@
          
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <!-- /.col -->
+         
         </div>
       </form>
-      
+      <p class="mt-3 mb-0">
+        <a href="{{ route('login') }}" class="text-center">Sign in</a>
+      </p>
       
     </div>
     <!-- /.card-body -->

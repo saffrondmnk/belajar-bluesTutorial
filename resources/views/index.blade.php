@@ -11,7 +11,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-              <a href="{{  route('user.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+              <a href="{{  route('admin.user.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">Responsive Hover Table</h3>
@@ -61,7 +61,7 @@
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->email }}</td>
                             <td>
-                                <a href="{{ route('user.edit', ['id' => $d -> id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i> Edit</a>
+                                <a href="{{ route('admin.user.edit', ['id' => $d -> id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i> Edit</a>
                                 <a data-toggle="modal" data-target="#modal-hapus{{  $d->id }}" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</a>
 
                             </td>
@@ -80,7 +80,7 @@
                               <div class="modal-body">
                                 <p>Apakah kamu y akin ingin menghapus data user <b>{{  $d->name }}</b>&hellip;?</p>
                               </div>
-                              <form action="{{ route('user.delete',['id'=> $d->id]) }}" method="POST">
+                              <form action="{{ route('admin.user.delete',['id'=> $d->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <div class="modal-footer justify-content-between">

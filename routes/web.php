@@ -25,6 +25,8 @@ Route::post('/login-proses',[LoginController::class,'login_proses'])->name('logi
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 Route::get('/register',[LoginController::class,'register'])->name('register');
+Route::post('/register-proses',[LoginController::class,'register_proses'])->name('register-proses');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'] , function(){
 
